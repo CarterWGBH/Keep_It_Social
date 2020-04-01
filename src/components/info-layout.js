@@ -17,29 +17,25 @@ import tagline from "./tagline"
 import VideoWrapper from "./video-headline"
 import PromoLight from "./promo-text-light"
 import ContactForm from "./contact-form"
+import PromoDark from "./promo-text-dark"
+import Hosts from "./hosts"
 import Sponsors from "./sponsors"
 import Footer from "./footer"
 
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+
+const AboutLayout = ({ children }) => {
 
   return (
     <div>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header></Header>
       <Tagline></Tagline>
-      <VideoWrapper></VideoWrapper>
-      <PromoLight></PromoLight>
+      <PromoDark></PromoDark>
+  
       <ContactForm></ContactForm>
       <Sponsors></Sponsors>
+
+
       <Footer></Footer>
 
       <div
@@ -52,15 +48,15 @@ const Layout = ({ children }) => {
        
         <main>{children}</main>
         <footer>
-
+       
         </footer>
       </div>
     </div>
   )
 }
 
-Layout.propTypes = {
+AboutLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default AboutLayout
